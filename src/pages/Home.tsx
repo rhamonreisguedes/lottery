@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 
 //images
 import duplasena from "../images/duplasena.png";
-import federal from "../images/federal.png";
-import loteca from "../images/loteca.png";
 import lotofacil from "../images/lotofacil.png";
-import lotogol from "../images/lotogol.png";
 import lotomania from "../images/lotomania.png";
 import mega from "../images/mega.png";
 import quina from "../images/quina.png";
@@ -24,7 +21,8 @@ const Home = (props: Props) => {
         textAlign: "center",
       }}
     >
-      <h2 className="py-10">Para onde vai sua sorte de hoje?</h2>
+      {/* fazer pergunta com typescript, colocar a responsividade */}
+      <h1 className="py-10">Para onde vai sua sorte do dia?</h1> 
       <Grid
         container
         style={{
