@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <div className='bg-green-300 text-center h-8 mt-5'>Sorte de Hoje © Direitos Reservados 2023</div>
-  )
-}
+    <footer className="bg-gray-200 text-center lg:text-left" style={{ bottom: '0', right: '0', left: '0'}}>
+      <div
+        className="text-gray-700 text-center p-4"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+      >
+        © 2023 Copyright: Sorte de Hoje
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

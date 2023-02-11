@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
 import mega from "../images/mega.png";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -18,7 +18,9 @@ const Mega = (props: Props) => {
   };
 
   const plus = () => {
-    setQty(qty + 1);
+    if (qty < 100) {
+      setQty(qty + 1);
+    }
   };
 
   const randomNumber = (): number => {
@@ -76,21 +78,47 @@ const Mega = (props: Props) => {
       </Button>
       {show &&
         games.map((games: any, index: any) => (
-          <div key={index}>
-            {games.map((numbers: any, index: any) => (
+          <div
+            key={index}
+            style={{
+              padding: "5px",
+              backgroundColor: index % 2 === 0 ? "white" : "#0F9D58",
+              color: index % 2 === 0 ? "black" : "black",
+            }}
+            className="mt-2"
+          >
+            Jogo {index + 1}:
+            {games.map((numbers: any, i: any) => (
               <span
-                style={{ border: "1px solid gray", borderRadius: "100%" }}
+                style={{
+                  border:
+                    index % 2 === 0 ? "1px solid gray" : "1px solid black",
+                  borderRadius: "100%",
+                  padding: "4px",
+                  color: index % 2 === 0 ? "black" : "black",
+                }}
                 key={index}
+                className="mx-1"
               >
-                {numbers}
+                {numbers < 10 ? "0" + numbers : numbers}
               </span>
             ))}
           </div>
         ))}
       {show && (
-        <div>
-          <Button variant="contained">Novos Jogos</Button>
-          <Button variant="contained">Voltar para Menu</Button>
+        <div className="mt-3">
+          <Link
+            to="/"
+            style={{
+              border: "1px solid transparent",
+              padding: "10px",
+              borderRadius: "5px",
+              backgroundColor: "#006AFF",
+              color: "white",
+            }}
+          >
+            Voltar para Home
+          </Link>
         </div>
       )}
     </Grid>
