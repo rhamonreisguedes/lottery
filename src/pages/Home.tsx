@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//css
+import styles from "./Home.module.css";
+
 //images
 import duplasena from "../images/duplasena.png";
 import lotofacil from "../images/lotofacil.png";
@@ -11,18 +14,22 @@ import timemania from "../images/timemania.png";
 
 //components from Matrial UI
 import Grid from "@mui/material/Grid";
+import Footer from "../components/Footer";
 
 type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <div
+    <div className="bg-gradient-to-r from-cyan-500 to-blue-500"
       style={{
         textAlign: "center",
       }}
     >
-      {/* fazer pergunta com typescript, colocar a responsividade */}
-      <h1 className="py-10">Para onde vai sua sorte do dia?</h1> 
+      <div>
+        <h1 className="py-10 font-semibold text-xl md:text-5xl">
+          ESCOLHA SEU JOGO:
+        </h1>
+      </div>
       <Grid
         container
         style={{
@@ -32,37 +39,38 @@ const Home = (props: Props) => {
         }}
         spacing={6}
       >
-        <Grid item xs={11} md={5}>
+        <Grid item xs={11} md={5} className={styles.animation}>
           <Link to="/mega">
             <img src={mega} alt="mega" />
           </Link>
         </Grid>
-        <Grid item xs={11} md={5}>
+        <Grid item xs={11} md={5} className={styles.animation}>
           <Link to="/lotofacil">
             <img src={lotofacil} alt="lotofacil" />
           </Link>
         </Grid>
-        <Grid item xs={11} md={5}>
+        <Grid item xs={11} md={5} className={styles.animation}>
           <Link to="/quina">
             <img src={quina} alt="quina" />
           </Link>
         </Grid>
-        <Grid item xs={11} md={5}>
+        <Grid item xs={11} md={5} className={styles.animation}>
           <Link to="/lotomania">
             <img src={lotomania} alt="lotomania" />
           </Link>
         </Grid>
-        <Grid item xs={11} md={5}>
+        <Grid item xs={11} md={5} className={styles.animation}>
           <Link to="/timemania">
             <img src={timemania} alt="timemania" />
           </Link>
         </Grid>
-        <Grid item xs={11} md={5}>
+        <Grid item xs={11} md={5} className={styles.animation}>
           <Link to="/duplasena">
             <img src={duplasena} alt="duplasena" />
           </Link>
         </Grid>
       </Grid>
+      <Footer />
     </div>
   );
 };
