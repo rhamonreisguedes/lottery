@@ -20,7 +20,7 @@ type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <div className="bg-gradient-to-r from-cyan-500 to-blue-500"
+    <div className="bg-gradient-to-r from-blue-500 to-cyan-500"
       style={{
         textAlign: "center",
       }}
