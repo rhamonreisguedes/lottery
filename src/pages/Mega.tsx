@@ -51,12 +51,6 @@ const Mega = (props: Props) => {
     return sorted_list;
   };
 
-  const resetGames = () => {
-    setQty(1);
-    setShow(false);
-    setGames([]);
-  };
-
   const goToMenu = () => {
     navigate("/")
   }
@@ -70,18 +64,18 @@ const Mega = (props: Props) => {
         justifyContent: "center",
         alignItems: "center",
       }}
-      className= 'text-base md: text-5xl'
+      className= 'text-base md:text-4xl'
     >
       <Grid item xs={12} md={7} className="pb-3 md:py-3">
         <img src={mega} alt="megasena-logo" />
       </Grid>
       <p className="py-3">Quantos jogos deseja realizar?</p>
       <div className="my-3">
-        <Button onClick={minus} variant="outlined">
+        <Button onClick={minus} variant="outlined" className="text-base md:text-4xl">
           -
         </Button>
         <span className="p-5">{qty}</span>
-        <Button onClick={plus} variant="outlined">
+        <Button onClick={plus} variant="outlined" className="text-base md:text-4xl">
           +
         </Button>
       </div>
@@ -93,22 +87,21 @@ const Mega = (props: Props) => {
           <div
             key={index}
             style={{
-              backgroundColor: index % 2 === 0 ? "white" : "#0F9D58",
-              color: index % 2 === 0 ? "black" : "black",
+              backgroundColor: index % 2 === 0 ? "#0f9d58" : "white",
+              color: "black",
             }}
-            className="mt-2 p-1"
+            className="mt-2 p-1 md:mt-4 md:p-6"
           >
             Jogo {index + 1}:
             {games.map((numbers: any, i: any) => (
               <span
                 style={{
-                  border:
-                    index % 2 === 0 ? "1px solid gray" : "1px solid black",
+                  border: "1px solid black",
                   borderRadius: "100%",
-                  color: index % 2 === 0 ? "black" : "black",
+                  color: "black",
                 }}
                 key={index}
-                className="m-1 p-1 font-bold"
+                className="m-1 p-1 font-bold md:m-2 md:p-2"
               >
                 {numbers < 10 ? "0" + numbers : numbers}
               </span>
@@ -116,7 +109,7 @@ const Mega = (props: Props) => {
           </div>
         ))}
       {show && (
-        <div className="mt-5 flex justify-center items-center">
+        <div className="my-3 flex justify-center items-center">
           <Button onClick={goToMenu} variant="contained">
             Voltar para Menu
           </Button>
