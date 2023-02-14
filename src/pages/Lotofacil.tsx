@@ -66,7 +66,7 @@ const Lotofacil = (props: Props) => {
       }}
       className="text-base md:text-4xl"
     >
-      <Grid item xs={12} md={7} className="pb-3 md:py-3">
+      <Grid item xs={12} md={8} className="pb-3 md:py-3">
         <img src={lotofacil} alt="megasena-logo" />
       </Grid>
       <p className="py-3">Quantos jogos deseja realizar?</p>
@@ -87,42 +87,52 @@ const Lotofacil = (props: Props) => {
           +
         </Button>
       </div>
-      <Button variant="contained" onClick={play}>
-        criar jogos
-      </Button>
+      <div className="mb-4">
+        <Button variant="contained" onClick={play}>
+          criar jogos
+        </Button>
+      </div>
       {show &&
         games.map((game: any, index: any) => (
           <div
-            key={index}
             style={{
-              backgroundColor: index % 2 === 0 ? "#aa98b5" : "white",
-              color: "black",
               display: "flex",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
             }}
-            className="mt-2 p-1 md:mt-4 md:p-6"
           >
-            <div>Jogo {index + 1}:</div>
-            {game.map((numbers: any, i: any) => (
-              <div
+            <Grid
+              container
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                backgroundColor: index % 2 === 0 ? "#aa98b5" : "white",
+                color: "black",
+              }}
+            >
+              <div className="font-bold">Jogo {index + 1}:</div>
+              <Grid
+                item
                 style={{
-                  border: "1px solid black",
-                  borderRadius: "100%",
-                  color: "black",
+                  display: "flex",
+                  flexWrap: "wrap",
                 }}
-                key={index}
-                className="m-1 p-1 font-bold md:m-2 md:p-2"
+                xs={12}
+                md={8}
               >
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  {i < 8 ? (
-                    <div>{numbers < 10 ? "0" + numbers : numbers}</div>
-                  ) : (
-                    <div>{numbers < 10 ? "0" + numbers : numbers}</div>
-                  )}
-                </div>
-              </div>
-            ))}
+                {game.map((item: any, i: any) => (
+                  <div
+                    style={{ border: "1px black solid", borderRadius: "100%" }}
+                    key={i}
+                    className="p-2 m-2"
+                  >
+                    {item < 10 ? "0" + item : item}
+                  </div>
+                ))}
+              </Grid>
+            </Grid>
           </div>
         ))}
       {show && (

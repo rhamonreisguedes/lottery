@@ -2,7 +2,8 @@ import lotomania from "../images/lotomania.png";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import { useState } from "react";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { flexbox } from "@mui/system";
 
 type Props = {};
 
@@ -52,8 +53,8 @@ const Lotomania = (props: Props) => {
   };
 
   const goToMenu = () => {
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <Grid
@@ -64,48 +65,75 @@ const Lotomania = (props: Props) => {
         justifyContent: "center",
         alignItems: "center",
       }}
-      className= 'text-base md:text-4xl'
+      className="text-base md:text-4xl"
     >
-      <Grid item xs={12} md={7} className="pb-3 md:py-3">
+      <Grid item xs={12} md={8} className="pb-3 md:py-3">
         <img src={lotomania} alt="megasena-logo" />
       </Grid>
       <p className="py-3">Quantos jogos deseja realizar?</p>
       <div className="my-3">
-        <Button onClick={minus} variant="outlined" className="text-base md:text-4xl">
+        <Button
+          onClick={minus}
+          variant="outlined"
+          className="text-base md:text-4xl"
+        >
           -
         </Button>
         <span className="p-5">{qty}</span>
-        <Button onClick={plus} variant="outlined" className="text-base md:text-4xl">
+        <Button
+          onClick={plus}
+          variant="outlined"
+          className="text-base md:text-4xl"
+        >
           +
         </Button>
       </div>
-      <Button variant="contained" onClick={play}>
-        criar jogos
-      </Button>
+      <div className="mb-4">
+        <Button variant="contained" onClick={play}>
+          criar jogos
+        </Button>
+      </div>
       {show &&
-        games.map((games: any, index: any) => (
+        games.map((game: any, index: any) => (
           <div
-            key={index}
             style={{
-              backgroundColor: index % 2 === 0 ? "#FFD580" : "white",
-              color: "black",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            className="mt-2 p-1 md:mt-4 md:p-6"
           >
-            Jogo {index + 1}:
-            {games.map((numbers: any, i: any) => (
-              <span
+            <Grid
+              container
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                backgroundColor: index % 2 === 0 ? "#FFD580" : "white",
+                color: "black",
+              }}
+            >
+              <div className="font-bold">Jogo {index + 1}:</div>
+              <Grid
+                item
                 style={{
-                  border: "1px solid black",
-                  borderRadius: "100%",
-                  color: "black",
+                  display: "flex",
+                  flexWrap: "wrap",
                 }}
-                key={index}
-                className="m-1 p-1 font-bold md:m-2 md:p-2"
+                xs={12}
+                md={8}
               >
-                {numbers < 10 ? "0" + numbers : numbers}
-              </span>
-            ))}
+                {game.map((item: any, i: any) => (
+                  <div
+                    style={{ border: "1px black solid", borderRadius: "100%" }}
+                    key={i}
+                    className="p-2 m-2"
+                  >
+                    {item < 10 ? "0" + item : item}
+                  </div>
+                ))}
+              </Grid>
+            </Grid>
           </div>
         ))}
       {show && (
