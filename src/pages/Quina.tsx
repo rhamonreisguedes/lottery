@@ -64,7 +64,7 @@ const Quina = (props: Props) => {
         justifyContent: "center",
         alignItems: "center",
       }}
-      className= 'text-base md:text-4xl'
+      className= 'text-lg md:text-4xl'
     >
       <Grid item xs={12} md={7} className="pb-3 md:py-3">
         <img src={quina} alt="megasena-logo" />
@@ -90,7 +90,7 @@ const Quina = (props: Props) => {
               backgroundColor: index % 2 === 0 ? "#CBC3E3" : "white",
               color: "black",
             }}
-            className="mt-2 p-1 md:mt-4 md:p-6"
+            className="mt-2 p-2 md:mt-4 md:p-6"
           >
             Jogo {index + 1}:
             {games.map((numbers: any, i: any) => (

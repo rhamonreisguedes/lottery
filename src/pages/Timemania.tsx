@@ -156,7 +156,7 @@ const Timemania = (props: Props) => {
         justifyContent: "center",
         alignItems: "center",
       }}
-      className="text-base md:text-4xl"
+      className="text-lg md:text-4xl"
     >
       <Grid item xs={12} md={8} className="pb-3 md:py-3">
         <img src={timemania} alt="timemania-logo" />

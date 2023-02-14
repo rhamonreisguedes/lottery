@@ -64,7 +64,7 @@ const Lotofacil = (props: Props) => {
         justifyContent: "center",
         alignItems: "center",
       }}
-      className="text-base md:text-4xl"
+      className="text-lg md:text-4xl"
     >
       <Grid item xs={12} md={8} className="pb-3 md:py-3">
         <img src={lotofacil} alt="megasena-logo" />
@@ -105,6 +105,8 @@ const Lotofacil = (props: Props) => {
             <Grid
               container
               style={{
+                display: 'flex',
+                flexDirection: 'column',
                 justifyContent: "center",
                 alignItems: "center",
                 textAlign: "center",
@@ -118,6 +120,7 @@ const Lotofacil = (props: Props) => {
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
+                  justifyContent: 'center',
                 }}
                 xs={12}
                 md={8}
