@@ -1,5 +1,5 @@
+//import components from react-router-dom
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Footer from './components/Footer';
 
 //import component
 import Navbar from './components/Navbar';
@@ -13,6 +13,7 @@ import Lotomania from './pages/Lotomania';
 import Duplasena from './pages/Duplasena';
 import Timemania from './pages/Timemania';
 
+//app routes
 function App() {
   return (
     <BrowserRouter>

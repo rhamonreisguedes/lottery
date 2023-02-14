@@ -25,7 +25,7 @@ const Duplasena = (props: Props) => {
   };
 
   const randomNumber = (): number => {
-    return Math.ceil(Math.random() * 60);
+    return Math.ceil(Math.random() * 50);
   };
 
   const play = () => {

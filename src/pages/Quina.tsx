@@ -19,13 +19,13 @@ const Quina = (props: Props) => {
   };
 
   const plus = () => {
-    if (qty < 100) {
+    if (qty < 99) {
       setQty(qty + 1);
     }
   };
 
   const randomNumber = (): number => {
-    return Math.ceil(Math.random() * 60);
+    return Math.ceil(Math.random() * 80);
   };
 
   const play = () => {
@@ -41,7 +41,7 @@ const Quina = (props: Props) => {
 
   const eachGame = () => {
     let jogo: number[] = [];
-    while (jogo.length < 6) {
+    while (jogo.length < 5) {
       const ranNum: number = randomNumber();
       if (jogo.indexOf(ranNum) === -1) {
         jogo.push(ranNum);

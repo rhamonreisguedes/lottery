@@ -2,7 +2,7 @@ import lotofacil from "../images/lotofacil.png";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import { useState } from "react";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
@@ -19,13 +19,13 @@ const Lotofacil = (props: Props) => {
   };
 
   const plus = () => {
-    if (qty < 100) {
+    if (qty < 99) {
       setQty(qty + 1);
     }
   };
 
   const randomNumber = (): number => {
-    return Math.ceil(Math.random() * 60);
+    return Math.ceil(Math.random() * 25);
   };
 
   const play = () => {
@@ -41,7 +41,7 @@ const Lotofacil = (props: Props) => {
 
   const eachGame = () => {
     let jogo: number[] = [];
-    while (jogo.length < 6) {
+    while (jogo.length < 15) {
       const ranNum: number = randomNumber();
       if (jogo.indexOf(ranNum) === -1) {
         jogo.push(ranNum);
@@ -52,8 +52,8 @@ const Lotofacil = (props: Props) => {
   };
 
   const goToMenu = () => {
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <Grid
@@ -64,18 +64,26 @@ const Lotofacil = (props: Props) => {
         justifyContent: "center",
         alignItems: "center",
       }}
-      className= 'text-base md:text-4xl'
+      className="text-base md:text-4xl"
     >
       <Grid item xs={12} md={7} className="pb-3 md:py-3">
         <img src={lotofacil} alt="megasena-logo" />
       </Grid>
       <p className="py-3">Quantos jogos deseja realizar?</p>
       <div className="my-3">
-        <Button onClick={minus} variant="outlined" className="text-base md:text-4xl">
+        <Button
+          onClick={minus}
+          variant="outlined"
+          className="text-base md:text-4xl"
+        >
           -
         </Button>
         <span className="p-5">{qty}</span>
-        <Button onClick={plus} variant="outlined" className="text-base md:text-4xl">
+        <Button
+          onClick={plus}
+          variant="outlined"
+          className="text-base md:text-4xl"
+        >
           +
         </Button>
       </div>
@@ -83,18 +91,21 @@ const Lotofacil = (props: Props) => {
         criar jogos
       </Button>
       {show &&
-        games.map((games: any, index: any) => (
+        games.map((game: any, index: any) => (
           <div
             key={index}
             style={{
               backgroundColor: index % 2 === 0 ? "#aa98b5" : "white",
               color: "black",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
             className="mt-2 p-1 md:mt-4 md:p-6"
           >
-            Jogo {index + 1}:
-            {games.map((numbers: any, i: any) => (
-              <span
+            <div>Jogo {index + 1}:</div>
+            {game.map((numbers: any, i: any) => (
+              <div
                 style={{
                   border: "1px solid black",
                   borderRadius: "100%",
@@ -103,8 +114,14 @@ const Lotofacil = (props: Props) => {
                 key={index}
                 className="m-1 p-1 font-bold md:m-2 md:p-2"
               >
-                {numbers < 10 ? "0" + numbers : numbers}
-              </span>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  {i < 8 ? (
+                    <div>{numbers < 10 ? "0" + numbers : numbers}</div>
+                  ) : (
+                    <div>{numbers < 10 ? "0" + numbers : numbers}</div>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
         ))}

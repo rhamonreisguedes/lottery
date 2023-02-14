@@ -25,7 +25,7 @@ const Lotomania = (props: Props) => {
   };
 
   const randomNumber = (): number => {
-    return Math.ceil(Math.random() * 60);
+    return Math.floor(Math.random() * 100);
   };
 
   const play = () => {
@@ -41,7 +41,7 @@ const Lotomania = (props: Props) => {
 
   const eachGame = () => {
     let jogo: number[] = [];
-    while (jogo.length < 6) {
+    while (jogo.length < 20) {
       const ranNum: number = randomNumber();
       if (jogo.indexOf(ranNum) === -1) {
         jogo.push(ranNum);

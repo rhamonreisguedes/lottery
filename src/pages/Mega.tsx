@@ -19,7 +19,7 @@ const Mega = (props: Props) => {
   };
 
   const plus = () => {
-    if (qty < 100) {
+    if (qty < 99) {
       setQty(qty + 1);
     }
   };

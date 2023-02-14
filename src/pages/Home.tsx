@@ -21,12 +21,9 @@ type Props = {};
 const Home = (props: Props) => {
   return (
     <div className="bg-gradient-to-r from-blue-500 to-cyan-500"
-      style={{
-        textAlign: "center",
-      }}
     >
       <div>
-        <h1 className="py-10 font-semibold text-xl md:text-5xl">
+        <h1 className="py-10 font-semibold text-xl text-center md:text-5xl">
           ESCOLHA SEU JOGO:
         </h1>
       </div>
