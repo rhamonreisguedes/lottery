@@ -159,7 +159,7 @@ const Timemania = (props: Props) => {
       className="text-base md:text-4xl"
     >
       <Grid item xs={12} md={8} className="pb-3 md:py-3">
-        <img src={timemania} alt="megasena-logo" />
+        <img src={timemania} alt="timemania-logo" />
       </Grid>
       <p className="py-3">Quantos jogos deseja realizar?</p>
       <div className="my-3">
@@ -174,56 +174,65 @@ const Timemania = (props: Props) => {
         <Button
           onClick={plus}
           variant="outlined"
-          className="text-base md:text-xl"
+          className="text-base md:text-4xl"
         >
           +
         </Button>
       </div>
-      <Button variant="contained" onClick={play} style={{marginBottom: '3rem'}}>
-        criar jogos
-      </Button>
+      <div className="mb-4">
+        <Button variant="contained" onClick={play}>
+          criar jogos
+        </Button>
+      </div>
       {show &&
-        games.map((games: any, index: any) => (
-          <Grid
-            container
+        games.map((game: any, index: any) => (
+          <div
             style={{
               display: "flex",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
             <Grid
-              item
-              xs={12}
-              md={8}
-              key={index}
+              container
               style={{
-                backgroundColor: index % 2 === 0 ? "#ffce44" : "white",
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                backgroundColor: index % 2 === 0 ? "#fffd8d" : "white",
                 color: "black",
-                display: "flex",
               }}
-              className="mt-2 p-1 md:mt-4 md:p-6"
             >
-              <div className="m-1 font-bold md:m-2">Jogo {index + 1}:</div>
-              {games.map((numbers: any, i: any) => (
-                <span
-                  style={{
-                    border: "1px solid black",
-                    borderRadius: "100%",
-                    color: "black",
-                  }}
-                  key={index}
-                  className="m-1 p-1 font-bold md:m-2 md:p-2"
-                >
-                  {numbers < 10 ? "0" + numbers : numbers}
-                </span>
-              ))}
+              <div className="font-bold">Jogo {index + 1}:</div>
+              
+              <Grid
+                item
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: 'center',
+                }}
+                xs={12}
+                md={8}
+              >
+                {game.map((item: any, i: any) => (
+                  <div
+                    style={{ border: "1px black solid", borderRadius: "100%" }}
+                    key={i}
+                    className="p-2 m-2"
+                  >
+                    {item < 10 ? "0" + item : item}
+                  </div>
+                ))}
+                
+              </Grid>
+              <div className="font-bold p-3">Time do Coração: <span className="font-normal">{teams[index]}</span></div>
             </Grid>
-          </Grid>
+          </div>
         ))}
-      {teams.map((item: any, index: any) => (
-        <div key={index}>{item}</div>
-      ))}
       {show && (
         <div className="my-3 flex justify-center items-center">
           <Button onClick={goToMenu} variant="contained">
